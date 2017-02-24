@@ -1,5 +1,6 @@
 body{
   background: url("../img/bg1.jpg") no-repeat center center fixed;
+  background-color: #494949;
   background-size: cover;
 }
 
@@ -24,8 +25,8 @@ div.habbit, div.education, div.person {
   margin-top: 20px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 20px;
-  color: #e7e7e7;
-  background-color: rgba(182, 182, 182, 0.6);
+  color: #303030;
+  background-color: rgba(255, 255, 255, 0.6);
   box-shadow: 4px 3px 3px rgba(0, 0, 0, 0.6);
   width: 200px;
 }
