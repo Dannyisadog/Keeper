@@ -86,17 +86,23 @@ ul.topnav {
 
 ul.topnav li {
     float: left;
+    margin-left: 20px;
 }
 
-div.tool, div.menuProfile {
+div.tool {
     float: right;
+}
+
+div.menuProfile {
+    float: right;
+    margin-right: 20px;
 }
 
 ul.topnav li a {
     display: inline-block;
     color: rgba(241, 241, 241, 1);
     text-align: center;
-    padding: 14px 20px;
+    padding: 15px 20px;
     font-size: 25px;
     text-decoration: none;
     transition: 0.3s;
