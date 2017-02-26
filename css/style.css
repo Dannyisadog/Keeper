@@ -1,5 +1,5 @@
 body {
-    background: url("../img/bg1.jpg") no-repeat center center fixed;
+    background: url("../img/bg6.jpg") no-repeat center center fixed;
     /*background-color: #494949;*/
     background-size: cover;
     margin: 0px;
@@ -104,5 +104,5 @@ ul.topnav li a {
 }
 
 ul.topnav li a:hover {
-    background-color: rgba(255, 255, 255, 0.3);
+    background-color: rgba(255, 255, 255, 0.1);
 }
