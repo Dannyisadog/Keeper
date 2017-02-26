@@ -1,52 +1,68 @@
-body{
-  background: url("../img/bg1.jpg") no-repeat center center fixed;
-   /*background-color: #494949;*/
-  background-size: cover;
+body {
+    background: url("../img/bg1.jpg") no-repeat center center fixed;
+    /*background-color: #494949;*/
+    background-size: cover;
+    margin: 0px;
 }
 
-div.selfImg, table {
-  background-color: rgba(255, 255, 255, 0.6);
-  width: 200px;
-  height: 300px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 100px;
-  box-shadow: 4px 3px 3px rgba(0, 0, 0, 0.6);
+div.selfImg {
+    background-color: rgba(110, 110, 110, 0.5);
+    width: 200px;
+    height: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+    box-shadow: 4px 3px 3px rgba(0, 0, 0, 0.6);
+}
+
+table {
+    background-color: rgba(110, 110, 110, 0.5);
+    width: 200px;
+    height: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+    box-shadow: 4px 3px 3px rgba(0, 0, 0, 0.6);
 }
 
 div.desc {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 20px;
-  color: #303030;
-  text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    color: #f2f2f2;
+    text-align: center;
 }
+
 div.habbit, div.education, div.person {
-  text-align: center;
-  margin-top: 20px;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 20px;
-  color: #303030;
-  background-color: rgba(255, 255, 255, 0.6);
-  box-shadow: 4px 3px 3px rgba(0, 0, 0, 0.6);
-  width: 200px;
+    text-align: center;
+    margin-top: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    color: #f2f2f2;
+    background-color: rgba(110, 110, 110, 0.5);
+    box-shadow: 4px 3px 3px rgba(0, 0, 0, 0.6);
+    width: 200px;
 }
+
 div.habbitCell {
-  font-size: 30px;
+    font-size: 30px;
 }
+
 div.habbitTitle {
-  font-size: 40px;
+    font-size: 40px;
 }
+
 div.education, div.person, div.habbit {
-  width: 200px;
-  margin-left: auto;
-  margin-right: auto;
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
 }
+
 div.email {
-  font-size: 15px;
+    font-size: 15px;
 }
 
 a {
-  text-decoration: none;
+    text-decoration: none;
 }
 
 table, th, td {
@@ -55,6 +71,38 @@ table, th, td {
 }
 
 table {
-  font-family: Arial, Helvetica, sans-serif;
-  color: #303030;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #f2f2f2;
+}
+
+ul.topnav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgba(238, 238, 238, 0.2);
+    width: auto;
+}
+
+ul.topnav li {
+    float: left;
+}
+
+div.tool, div.menuProfile {
+    float: right;
+}
+
+ul.topnav li a {
+    display: inline-block;
+    color: rgba(241, 241, 241, 1);
+    text-align: center;
+    padding: 14px 20px;
+    font-size: 25px;
+    text-decoration: none;
+    transition: 0.3s;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+ul.topnav li a:hover {
+    background-color: rgba(255, 255, 255, 0.3);
 }

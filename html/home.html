@@ -4,69 +4,29 @@
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <script src="../js/test.js"></script>
     <title>Home</title>
+
 </head>
 
 <body>
-    <p>Click button to create Img</p>
-    <button onclick="createProfile()">Try it</button>
-
+    <div class="top">
+        <ul class="topnav" id="myTopnav">
+            <div class="menu">
+                <li><a class="active" href="home.html">Keeper</a></li>
+            </div>
+            <div class="menuProfile">
+                <li><a href="#">Profile</a></li>
+            </div>
+            <div class="tool">
+                <li><a href="#">Tool</a></li>
+            </div>
+            <!-- <li class="icon">
+            <a href="javascript:void(0);" style="font-size:15px;" onclick="myFunction()">☰</a>
+        </li> -->
+        </ul>
     </div>
+    <p onclick="createProfile()" style="color:white">Click this to create profile</p>
 </body>
-
-<script>
-    function createProfile() {
-        var testDiv = document.createElement("div");
-        testDiv.style.backgroundColor = "rgba(255, 255, 255, 0.6)";
-        testDiv.style.height = "300px";
-        testDiv.style.width = "200px";
-        testDiv.style.marginTop = "100px";
-        // testDiv.style.marginRight = "auto";
-        testDiv.style.marginLeft = "30px";
-        testDiv.style.float = "left";
-        testDiv.id = 'block';
-
-
-        testDiv.style.fontFamily = "Arial, Helvetica, sans-serif";
-        testDiv.style.fontSize = "20px";
-        testDiv.style.color = "#303030";
-        testDiv.style.textAlign = "center";
-
-
-        var testImg = document.createElement("img");
-        testImg.setAttribute("src", "../img/self.jpg");
-        testImg.setAttribute("height", "200");
-        testImg.setAttribute("width", "200");
-
-        testDiv.appendChild(testImg);
-
-        var chName = document.createElement("div");
-        var chNameNode = document.createTextNode("陳 鍾 逸");
-        chName.appendChild(chNameNode);
-
-        testDiv.appendChild(chName);
-
-        var enName = document.createElement("div");
-        var enNameNode = document.createTextNode("Danny");
-        enName.appendChild(enNameNode);
-
-        testDiv.appendChild(enName);
-
-        var phone = document.createElement("div");
-        var phoneNode = document.createTextNode("0926240268");
-        phone.appendChild(phoneNode);
-
-        testDiv.appendChild(phone);
-
-        var email = document.createElement("div");
-        var emailNode = document.createTextNode("dannyisadog10@gmail.com");
-        email.style.fontSize = "15px";
-        email.appendChild(emailNode);
-
-        testDiv.appendChild(email);
-
-        document.getElementsByTagName('body')[0].appendChild(testDiv);
-    }
-</script>
 
 </html>
