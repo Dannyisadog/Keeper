@@ -1,6 +1,6 @@
 <?php
-$cars = array("Volvo", "BMW", "Toyota");
- for ($i = 1; $i <= 3; $i++) {
-    echo $i . " " . $cars[$i - 1] . '<br>';
- }
+  $year = 2017;
+  $month = array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
+
+  
  ?>
