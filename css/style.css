@@ -16,6 +16,10 @@ body {
   margin: 0px;
 }
 
+#calendar {
+  max-width: 900px;
+  margin: 0 auto;
+}
 div.selfImg {
     background-color: rgba(110, 110, 110, 0.5);
     width: 200px;
