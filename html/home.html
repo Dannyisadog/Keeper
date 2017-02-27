@@ -11,34 +11,40 @@
 </head>
 
 <body>
-    <div class="top">
-        <ul class="topnav" id="myTopnav">
-            <div class="menu">
-                <li><a class="active" href="home.html">Keeper</a></li>
-            </div>
-            <div class="menuProfile">
-                <li><a href="#">Profile</a></li>
-            </div>
-            <div class="tool">
-                <li><a href="#">Tool</a></li>
-            </div>
-            <!-- <li class="icon">
+    <div class="page" id="firstPage" style="width:100vw; height: 100vh;">
+        <div class="top">
+            <ul class="topnav" id="myTopnav">
+                <div class="menu">
+                    <li><a class="active" href="home.html">Keeper</a></li>
+                </div>
+                <div class="menuProfile">
+                    <li><a href="#">Profile</a></li>
+                </div>
+                <div class="tool">
+                    <li><a href="#">Tool</a></li>
+                </div>
+                <!-- <li class="icon">
             <a href="javascript:void(0);" style="font-size:15px;" onclick="myFunction()">☰</a>
         </li> -->
-        </ul>
-    </div>
-    <div id="fb-root"></div>
-    <div id="block" style="height:27px; width:50px; margin-top:20px; margin-left:40px;">
-        <div class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="false" data-auto-logout-link="true"></div>
-    </div>
-    <div id="status"></div>
+            </ul>
+        </div>
+        <div id="fb-root"></div>
+        <div id="block" style="height:27px; width:50px; margin-top:20px; margin-left:40px;">
+            <div class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="false" data-auto-logout-link="true"></div>
+        </div>
+        <div id="status"></div>
 
-    <div id="block" style="background-color: rgba(238, 238, 238, 0.2); height:80vh; width:70vw; margin-top:20px; margin-left:40px; float: left">
+        <div id="block" style="background-color: rgba(238, 238, 238, 0.2); height:80vh; width:70vw; margin-top:20px; margin-left:40px; float: left">
+        </div>
+
+        <div id="block" style="background-color: rgba(238, 238, 238, 0.2); height:80vh; width:22vw; margin-top:20px; margin-right:40px; float: right">
+        </div>
+        <p onclick="createProfile()" style="color:white">Click me</p>
     </div>
 
-    <div id="block" style="background-color: rgba(238, 238, 238, 0.2); height:80vh; width:22vw; margin-top:20px; margin-right:40px; float: right">
+    <div class="page" id="secondPage" style="width:100vw; height: 100vh;">
+
     </div>
-    <!-- <p onclick="createProfile()" style="color:white">Click me</p> -->
 </body>
 
 </html>
