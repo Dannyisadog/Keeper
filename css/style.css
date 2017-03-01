@@ -1,36 +1,46 @@
 body {
-    /*background: url("../img/bg6.jpg") no-repeat center center fixed;*/
+    background: url("../img/bg6.jpg") no-repeat center center fixed;
     background-color: #000000;
     background-size: cover;
     margin: 0px;
 }
 
 #firstPage {
-  background: url("../img/bg6.jpg") no-repeat center center fixed;
-  background-size: cover;
-  margin: 0px;
+    background: url("../img/bg6.jpg") no-repeat center center fixed;
+    background-size: cover;
+    margin: 0px;
 }
+
 #secondPage {
-  background: url("../img/bg4.jpg") no-repeat center center fixed;
-  background-size: cover;
-  margin: 0px;
+    background: url("../img/bg4.jpg") no-repeat center center fixed;
+    background-size: cover;
+    margin: 0px;
 }
 
 #calendar {
-  max-width: 900px;
-  margin: 0 auto;
-}
-div.selfImg {
-    background-color: rgba(110, 110, 110, 0.5);
-    width: 200px;
-    height: 300px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 100px;
-    box-shadow: 4px 3px 3px rgba(0, 0, 0, 0.6);
+    max-width: 900px;
+    margin: 0 auto;
 }
 
-table {
+div.home-calendar {
+    background-color: rgba(238, 238, 238, 0.2);
+    height: 83vh;
+    width: 70vw;
+    margin-top: 40px;
+    margin-left: 20px;
+    float: left
+}
+
+div.home-list {
+    background-color: rgba(238, 238, 238, 0.2);
+    height: 83vh;
+    width: 20vw;
+    margin-top: 40px;
+    margin-right: 20px;
+    float: right
+}
+
+div.selfImg {
     background-color: rgba(110, 110, 110, 0.5);
     width: 200px;
     height: 300px;
@@ -101,16 +111,19 @@ ul.topnav {
 
 ul.topnav li {
     float: left;
-    margin-left: 20px;
 }
 
 div.tool {
     float: right;
 }
 
+div.loginButton {
+    float: right;
+    margin-top: 18px;
+}
+
 div.menuProfile {
     float: right;
-    margin-right: 20px;
 }
 
 ul.topnav li a {
