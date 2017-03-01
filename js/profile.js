@@ -7,13 +7,13 @@ function myFunction() {
     }
 }
 
-function createProfile() {
+function test() {
     var testDiv = document.createElement("div");
     testDiv.style.backgroundColor = "rgba(238, 238, 238, 0.2)";
     testDiv.style.height = "300px";
     testDiv.style.width = "200px";
     testDiv.style.marginTop = "40px";
-    // testDiv.style.marginRight = "auto";
+    testDiv.style.marginRight = "auto";
     testDiv.style.marginLeft = "30px";
     testDiv.style.float = "left";
     testDiv.id = 'block';
@@ -23,7 +23,6 @@ function createProfile() {
     testDiv.style.fontSize = "20px";
     testDiv.style.color = "rgba(241, 241, 241, 1)";
     testDiv.style.textAlign = "center";
-
 
     var testImg = document.createElement("img");
     testImg.setAttribute("src", "../img/self.jpg");
@@ -57,7 +56,7 @@ function createProfile() {
 
     testDiv.appendChild(email);
 
-    document.getElementById('secondPage')[0].appendChild(testDiv);
+    document.getElementById("my-profile").appendChild(testDiv);
 }
 
 $(document).ready(function() {
