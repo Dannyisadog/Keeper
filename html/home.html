@@ -20,16 +20,21 @@
 
 <body>
     <div class="page" id="firstPage" style="width:100vw; height: 100vh;">
-        <div class="top">
+      <div class="menu" id="home-menu">
+        <div class="menu-logo" style="width:100px; height:60px;">
+            <a href="home.html" style="color: rgba(241, 241, 241, 1);">Keeper</a>
+        </div>
+      </div>
+        <!-- <div class="top">
             <ul class="topnav" id="myTopnav">
                 <div class="menu">
                     <li><a class="active" href="home.html">Keeper</a></li>
                 </div>
                 <div class="menuProfile">
-                    <li><a href="#">Profile</a></li>
+                    <li><a class="active" href="#">Profile</a></li>
                 </div>
                 <div class="tool">
-                    <li><a href="#">Tool</a></li>
+                    <li><a class="active" href="#">Tool</a></li>
                 </div>
                 <div class="loginButton">
                     <li>
@@ -37,15 +42,16 @@
                     </li>
                 </div>
             </ul>
-        </div>
+        </div> -->
+
         <div id="fb-root"></div>
 
-        <div class="home-calendar" id="block">
+        <div class="home-calendar">
             <!-- <div id='calendar'></div> -->
             <button onclick="test()">Click me</button>
         </div>
 
-        <div class="home-list" id="block">
+        <div class="home-list">
 
         </div>
     </div>
@@ -53,7 +59,6 @@
     <div class="page" id="secondPage" style="width:100vw; height: 100vh;">
         <p id="my-profile"></p>
     </div>
-
 </body>
 
 </html>

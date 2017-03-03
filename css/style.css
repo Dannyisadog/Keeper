@@ -22,11 +22,28 @@ body {
     margin: 0 auto;
 }
 
+#home-menu {
+    width: 100vw;
+    height: 60px;
+    background-color: rgba(238, 238, 238, 0.2);
+    position: fixed;
+    left: 0px;
+    top: 0px;
+}
+
+div.menu-logo {
+    font-size: 30px;
+    text-align: center;
+    margin-top: 12px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 20px;
+}
+
 div.home-calendar {
     background-color: rgba(238, 238, 238, 0.2);
     height: 83vh;
     width: 70vw;
-    margin-top: 40px;
+    margin-top: 100px;
     margin-left: 20px;
     float: left
 }
@@ -35,7 +52,7 @@ div.home-list {
     background-color: rgba(238, 238, 238, 0.2);
     height: 83vh;
     width: 20vw;
-    margin-top: 40px;
+    margin-top: 100px;
     margin-right: 20px;
     float: right
 }
