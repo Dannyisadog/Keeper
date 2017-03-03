@@ -31,14 +31,6 @@ body {
     top: 0px;
 }
 
-div.menu-logo {
-    font-size: 30px;
-    text-align: center;
-    margin-top: 12px;
-    font-family: Arial, Helvetica, sans-serif;
-    margin-left: 20px;
-}
-
 div.home-calendar {
     background-color: rgba(238, 238, 238, 0.2);
     height: 83vh;
@@ -117,43 +109,29 @@ table {
     color: #f2f2f2;
 }
 
-ul.topnav {
+ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
     background-color: rgba(238, 238, 238, 0.2);
-    width: auto;
+    position: fixed;
+    width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
 }
 
-ul.topnav li {
+li.menu-left {
     float: left;
 }
 
-div.tool {
+li.menu-right {
     float: right;
 }
 
-div.loginButton {
-    float: right;
-    margin-top: 18px;
-}
-
-div.menuProfile {
-    float: right;
-}
-
-ul.topnav li a {
-    display: inline-block;
-    color: rgba(241, 241, 241, 1);
-    text-align: center;
-    padding: 15px 20px;
-    font-size: 25px;
+li a {
+    display: block;
+    color: white;
+    padding: 16px;
     text-decoration: none;
-    transition: 0.3s;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-ul.topnav li a:hover {
-    background-color: rgba(255, 255, 255, 0.1);
 }
