@@ -25,7 +25,7 @@ function test() {
     testDiv.style.textAlign = "center";
 
     var testImg = document.createElement("img");
-    testImg.setAttribute("src", "../img/self.jpg");
+    testImg.setAttribute("src", "./Keeper/img/self.jpg");
     testImg.setAttribute("height", "200");
     testImg.setAttribute("width", "200");
 
