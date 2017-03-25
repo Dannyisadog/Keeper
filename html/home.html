@@ -2,20 +2,20 @@
 <html>
 
 <head>
+    <title>Home</title>
+
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href='../css/fullcalendar.min.css' rel='stylesheet' />
     <link href='../css/fullcalendar.print.min.css' rel='stylesheet' media='print' />
     <link href='../css/style.css' rel='stylesheet' />
 
-    <script src='../js/moment.min.js'></script>
-    <script src='../js/jquery.min.js'></script>
-    <script src='../js/fullcalendar.min.js'></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src='../js/profile.js'></script>
     <script src='../js/facebook.js'></script>
     <script src='../js/calendar.js'></script>
-
-    <title>Home</title>
-
 
 </head>
 
@@ -24,7 +24,7 @@
         font-size: 20px;
         width: 65vw;
         height: 66vh;
-        color: rgb(255, 252, 0);
+        color: rgb(255, 255, 255);
         /*text-align: center;*/
         margin-left: auto;
         margin-right: auto;
@@ -32,10 +32,25 @@
         font-family: Arial, Helvetica, sans-serif;
     }
 
-    div.calendar-date {
-        width: 70px;
+    p#currentDate {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    #calendar-title {
+        color: #7effa2;
+    }
+    #today {
+        color: #ff0000;
+    }
+    div.calendar-date,
+    div.calendar-holiday {
+        width: 120px;
         height: 70px;
         /*background-color: #2b0bf1;*/
+    }
+
+    div.calendar-holiday {
+        color: #ffb800;
     }
 </style>
 
@@ -48,13 +63,10 @@
             <li class="menu-right">
                 <div class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="false" data-auto-logout-link="true" style="margin-top:12px;"></div>
             </li>
-            <li class="menu-right">
-                <button onclick="createCalendar()">Click me</button>
-            </li>
         </ul>
         <div id="fb-root"></div>
         <div id="home-calendar">
-          <button type="button" name="button" onclick="createCalendar(year, month)">Next</button>
+
         </div>
 
         <div id="home-list">
@@ -66,5 +78,6 @@
         <p id="my-profile"></p>
     </div>
 </body>
+
 
 </html>
