@@ -5,7 +5,9 @@ window.onload = function() {
     currentDate = currentDay.getDate();
     createCalendarMenu(currentYear, currentMonth, currentDate);
     createCalendar(currentYear, currentMonth);
+    // createDialog();
 }
+
 
 var firstday_1917 = [1, 4, 4, 0, 2, 5, 0, 3, 6, 1, 4, 6];
 var firstday_year;
@@ -84,7 +86,7 @@ function createCalendar(year, month) {
     table.setAttribute('id', 'table-calendar');
     table.setAttribute('border', '1px');
 
-    var weekDay = ['', 'S', 'M', 'T', 'W', 'T', 'F', 'S'];
+    var weekDay = ['', '日', '一', '二', '三', '四', '五', '六'];
     var count = 1;
     var space = 0;
 
@@ -112,6 +114,7 @@ function createCalendar(year, month) {
                             createSpace(table, tr);
                             space++;
                         } else {
+                            var buttonDateId = year + "/" + month + "/" + count; //count is date
                             var td = document.createElement('td');
                             var tdText = document.createTextNode(count);
                             var dateDiv = document.createElement('div');
@@ -128,7 +131,7 @@ function createCalendar(year, month) {
                                 dateDiv.setAttribute('id', id);
                             }
                             dateDiv.appendChild(tdText);
-                            td.appendChild(createEventButton());
+                            td.appendChild(createEventButton(buttonDateId));
                             td.appendChild(dateDiv);
                             tr.appendChild(td);
                             table.appendChild(tr);
@@ -139,6 +142,7 @@ function createCalendar(year, month) {
                             createSpace(table, tr);
                             space++;
                         } else {
+                            var buttonDateId = year + "/" + month + "/" + count; //count is date
                             var td = document.createElement('td');
                             var tdText = document.createTextNode(count);
                             var dateDiv = document.createElement('div');
@@ -155,7 +159,7 @@ function createCalendar(year, month) {
                                 dateDiv.setAttribute('id', id);
                             }
                             dateDiv.appendChild(tdText);
-                            td.appendChild(createEventButton());
+                            td.appendChild(createEventButton(buttonDateId));
                             td.appendChild(dateDiv);
                             tr.appendChild(td);
                             table.appendChild(tr);
@@ -166,6 +170,7 @@ function createCalendar(year, month) {
                             createSpace(table, tr);
                             space++;
                         } else {
+                            var buttonDateId = year + "/" + month + "/" + count; //count is date
                             var td = document.createElement('td');
                             var tdText = document.createTextNode(count);
                             var dateDiv = document.createElement('div');
@@ -182,7 +187,7 @@ function createCalendar(year, month) {
                                 dateDiv.setAttribute('id', id);
                             }
                             dateDiv.appendChild(tdText);
-                            td.appendChild(createEventButton());
+                            td.appendChild(createEventButton(buttonDateId));
                             td.appendChild(dateDiv);
                             tr.appendChild(td);
                             table.appendChild(tr);
@@ -195,6 +200,7 @@ function createCalendar(year, month) {
                             createSpace(table, tr);
                             space++;
                         } else {
+                            var buttonDateId = year + "/" + month + "/" + count; //count is date
                             var td = document.createElement('td');
                             var tdText = document.createTextNode(count);
                             var dateDiv = document.createElement('div');
@@ -213,7 +219,7 @@ function createCalendar(year, month) {
                                 dateDiv.setAttribute('id', id);
                             }
                             dateDiv.appendChild(tdText);
-                            td.appendChild(createEventButton(id));
+                            td.appendChild(createEventButton(buttonDateId));
                             td.appendChild(dateDiv);
                             tr.appendChild(td);
                             table.appendChild(tr);
@@ -224,6 +230,7 @@ function createCalendar(year, month) {
                             createSpace(table, tr);
                             space++;
                         } else {
+                            var buttonDateId = year + "/" + month + "/" + count; //count is date
                             var td = document.createElement('td');
                             var tdText = document.createTextNode(count);
                             var dateDiv = document.createElement('div');
@@ -240,7 +247,7 @@ function createCalendar(year, month) {
                                 dateDiv.setAttribute('id', id);
                             }
                             dateDiv.appendChild(tdText);
-                            td.appendChild(createEventButton());
+                            td.appendChild(createEventButton(buttonDateId));
                             td.appendChild(dateDiv);
                             tr.appendChild(td);
                             table.appendChild(tr);
@@ -251,6 +258,7 @@ function createCalendar(year, month) {
                             createSpace(table, tr);
                             space++;
                         } else {
+                            var buttonDateId = year + "/" + month + "/" + count; //count is date
                             var td = document.createElement('td');
                             var tdText = document.createTextNode(count);
                             var dateDiv = document.createElement('div');
@@ -267,7 +275,7 @@ function createCalendar(year, month) {
                                 dateDiv.setAttribute('id', id);
                             }
                             dateDiv.appendChild(tdText);
-                            td.appendChild(createEventButton());
+                            td.appendChild(createEventButton(buttonDateId));
                             td.appendChild(dateDiv);
                             tr.appendChild(td);
                             table.appendChild(tr);
@@ -283,8 +291,28 @@ function createCalendar(year, month) {
     //     var testNode = document.createTextNode(firstday_year[i]);
     //     document.getElementById('home-calendar').appendChild(testNode);
     // }
-
     document.getElementById('home-calendar').appendChild(table);
+    createDialog();
+}
+
+function uploadToDB(name, desc, date) {
+    if (name.length == 0) {
+        // document.getElementById(id).innerHTML = "";
+        return;
+    } else {
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+              console.log(this.responseText);
+            }
+        }
+        xmlhttp.open("POST", "../php/uploadToDB.php?name=" + name + "&desc=" + desc + "&date=" + date, true);
+        xmlhttp.send();
+    }
+}
+
+function downloadToCalendar(){
+
 }
 
 function createSpace(table, tr) {
@@ -299,33 +327,52 @@ function createSpace(table, tr) {
     table.appendChild(tr);
 }
 
-function createEventDialog(id) {
-  var name = prompt("Please enter your name");
+function createDialog() {
+    var dialog, form,
+        name = $("#name"),
+        desc = $("#desc");
+    allFields = $([]).add(name).add(desc);
 
-  if (name != null) {
-      var eventDiv = document.createElement('div');
-      var eventP = document.createElement('p');
-      var eventPText = document.createTextNode(name);
+    dialog = $("#dialog-form").dialog({
+        autoOpen: false,
+        height: 280,
+        width: 350,
+        modal: true,
+        buttons: {
+            "Create an event": function() {
+                var buttonDate = $(this).data('buttonDate');
+                uploadToDB(name.val(), desc.val(), buttonDate);
+                dialog.dialog("close");
+            },
+            Cancel: function() {
+                dialog.dialog("close");
+            }
+        },
+        close: function() {
+            form[0].reset();
+        }
+    });
 
-      eventP.style.lineHeight = '0px';
-      eventP.style.fontSize = '15px';
+    form = dialog.find("form").on("submit", function(event) {
+        event.preventDefault();
+    });
 
-      eventP.appendChild(eventPText);
-      eventDiv.appendChild(eventP);
-      document.getElementById(id).appendChild(eventDiv);
-  }
+    $(".eventButton").button().on("click", function() {
+        // console.log(" ID: ", $(this).attr("id"));
+        var dateId = $(this).attr("id");
+        console.log(dateId);
+        dialog.data('buttonDate', dateId).dialog("open");
+    });
 }
 
 function createEventButton(id) {
     var eventButton = document.createElement('button');
     var eventButtonText = document.createTextNode('+');
 
-    $(eventButton).click(e => {
-        createEventDialog(id);
-    });
-
-    eventButton.setAttribute('id', 'eventButton');
+    eventButton.setAttribute('id', id);
+    eventButton.setAttribute('class', 'eventButton');
     eventButton.style.float = 'right';
+
     eventButton.appendChild(eventButtonText);
 
     return eventButton;
