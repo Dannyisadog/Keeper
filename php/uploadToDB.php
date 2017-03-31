@@ -5,6 +5,8 @@ $username = "root";
 $password = "root";
 $dbname = "keeper";
 
+$user_id    = $_REQUEST["user_id"];
+$user_name  = $_REQUEST["user_name"];
 $event_name = $_REQUEST["name"];
 $event_desc = $_REQUEST["desc"];
 $event_date = $_REQUEST["date"];
@@ -27,7 +29,7 @@ if ($conn->query($sqlCreateDB) === TRUE) {
     // echo "Error creating database: " . $conn->error;
 }
 
-$sql = "INSERT INTO event (event_name, event_desc, event_date) VALUES ('$event_name', '$event_desc', '$event_date')";
+$sql = "INSERT INTO event (user_id, user_name, event_name, event_desc, event_date) VALUES ('$user_id', '$user_name', '$event_name', '$event_desc', '$event_date')";
 
 if ($conn->query($sql) === TRUE) {
     echo "New record created successfully ";

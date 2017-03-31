@@ -1,21 +1,10 @@
-window.onload = function() {
-    currentDay = new Date();
-    currentYear = currentDay.getFullYear();
-    currentMonth = currentDay.getMonth() + 1;
-    currentDate = currentDay.getDate();
-    createCalendarMenu(currentYear, currentMonth, currentDate);
-    createCalendar(currentYear, currentMonth);
-    // createDialog();
-}
-
-
 var firstday_1917 = [1, 4, 4, 0, 2, 5, 0, 3, 6, 1, 4, 6];
 var firstday_year;
 
 function createCalendarMenu(year, month, date) {
 
     var menuDiv = document.createElement('div');
-    menuDiv.style.backgroundColor = 'rgba(135, 223, 255, 0.2)';
+    menuDiv.style.backgroundColor = 'rgba(156, 255, 240, 0.2)';
     menuDiv.style.width = '65vw';
     menuDiv.style.height = '6vh';
     menuDiv.style.marginRight = 'auto';
@@ -39,6 +28,14 @@ function createCalendarMenu(year, month, date) {
 
     menuDiv.appendChild(menuPreButton);
 
+    var menuTodayButton = document.createElement('button');
+    menuTodayButton.style.float = 'right';
+    menuTodayButton.setAttribute('id', 'calendar-todayButton');
+    var menuTodayButtonText = document.createTextNode('Today');
+    menuTodayButton.appendChild(menuTodayButtonText);
+
+    menuDiv.appendChild(menuTodayButton);
+
     var today = document.createElement('p');
     today.style.color = 'rgba(241, 241, 241, 1)';
     today.style.fontSize = '4vh';
@@ -52,7 +49,6 @@ function createCalendarMenu(year, month, date) {
     menuDiv.appendChild(today);
 
     document.getElementById('home-calendar').appendChild(menuDiv);
-
 
     $(menuNextButton).click(e => {
         $("#calendar-Title").remove();
@@ -77,6 +73,12 @@ function createCalendarMenu(year, month, date) {
         createCalendarMenu(year, month, date);
         $('#table-calendar').remove();
         createCalendar(year, month);
+
+    });
+
+    $(menuTodayButton).click(e => {
+        getTodayCalendar();
+
     });
 }
 
@@ -295,7 +297,14 @@ function createCalendar(year, month) {
     createDialog();
 }
 
-function uploadToDB(name, desc, date) {
+function getTodayCalendar() {
+    $("#calendar-Title").remove();
+    createCalendarMenu(currentYear, currentMonth, currentDate);
+    $('#table-calendar').remove();
+    createCalendar(currentYear, currentMonth);
+}
+
+function uploadToDB(user_id, user_name, name, desc, date) {
     if (name.length == 0) {
         // document.getElementById(id).innerHTML = "";
         return;
@@ -303,16 +312,12 @@ function uploadToDB(name, desc, date) {
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
-              console.log(this.responseText);
+                console.log(this.responseText);
             }
         }
-        xmlhttp.open("POST", "../php/uploadToDB.php?name=" + name + "&desc=" + desc + "&date=" + date, true);
+        xmlhttp.open("POST", "../php/uploadToDB.php?user_id=1778696255676580" + "&user_name=Danny" + "&name=" + name + "&desc=" + desc + "&date=" + date, true);
         xmlhttp.send();
     }
-}
-
-function downloadToCalendar(){
-
 }
 
 function createSpace(table, tr) {
@@ -341,7 +346,7 @@ function createDialog() {
         buttons: {
             "Create an event": function() {
                 var buttonDate = $(this).data('buttonDate');
-                uploadToDB(name.val(), desc.val(), buttonDate);
+                uploadToDB("user_id", "user_name", name.val(), desc.val(), buttonDate);
                 dialog.dialog("close");
             },
             Cancel: function() {
@@ -366,6 +371,7 @@ function createDialog() {
 }
 
 function createEventButton(id) {
+
     var eventButton = document.createElement('button');
     var eventButtonText = document.createTextNode('+');
 
