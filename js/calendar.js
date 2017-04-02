@@ -4,16 +4,17 @@ var firstday_year;
 function createCalendarMenu(year, month, date) {
 
     var menuDiv = document.createElement('div');
-    menuDiv.style.backgroundColor = 'rgba(156, 255, 240, 0.2)';
+    menuDiv.style.backgroundColor = 'rgba(156, 255, 240, 0)';
     menuDiv.style.width = '65vw';
     menuDiv.style.height = '6vh';
     menuDiv.style.marginRight = 'auto';
     menuDiv.style.marginLeft = 'auto';
-    menuDiv.style.marginTop = '20px';
+    menuDiv.style.marginTop = '0px';
     menuDiv.setAttribute('id', 'calendar-Title');
 
     var menuNextButton = document.createElement('button');
     menuNextButton.style.float = 'right';
+    menuNextButton.style.marginTop = '40px';
     menuNextButton.setAttribute('id', 'calendar-nextButton');
     var menuNextButtonText = document.createTextNode('Next');
     menuNextButton.appendChild(menuNextButtonText);
@@ -22,6 +23,7 @@ function createCalendarMenu(year, month, date) {
 
     var menuPreButton = document.createElement('button');
     menuPreButton.style.float = 'right';
+    menuPreButton.style.marginTop = '40px';
     menuPreButton.setAttribute('id', 'calendar-preButton');
     var menuPreButtonText = document.createTextNode('Pre');
     menuPreButton.appendChild(menuPreButtonText);
@@ -30,6 +32,7 @@ function createCalendarMenu(year, month, date) {
 
     var menuTodayButton = document.createElement('button');
     menuTodayButton.style.float = 'right';
+    menuTodayButton.style.marginTop = '40px';
     menuTodayButton.setAttribute('id', 'calendar-todayButton');
     var menuTodayButtonText = document.createTextNode('Today');
     menuTodayButton.appendChild(menuTodayButtonText);
@@ -38,10 +41,11 @@ function createCalendarMenu(year, month, date) {
 
     var today = document.createElement('p');
     today.style.color = 'rgba(241, 241, 241, 1)';
-    today.style.fontSize = '4vh';
-    today.style.textAlign = 'center';
+    today.style.fontSize = '7vh';
+    today.style.textAlign = 'left';
+    today.style.marginTop = '20px';
     today.setAttribute('id', 'currentDate');
-    var todayText = document.createTextNode(year + '/' + month + '/' + date);
+    var todayText = document.createTextNode(year + ' / ' + month);
 
 
     today.appendChild(todayText);
@@ -133,7 +137,9 @@ function createCalendar(year, month) {
                                 dateDiv.setAttribute('id', id);
                             }
                             dateDiv.appendChild(tdText);
-                            td.appendChild(createEventButton(buttonDateId));
+                            if (myLoginStatus == "Login") {
+                                td.appendChild(createEventButton(buttonDateId));
+                            }
                             td.appendChild(dateDiv);
                             tr.appendChild(td);
                             table.appendChild(tr);
@@ -161,7 +167,9 @@ function createCalendar(year, month) {
                                 dateDiv.setAttribute('id', id);
                             }
                             dateDiv.appendChild(tdText);
-                            td.appendChild(createEventButton(buttonDateId));
+                            if (myLoginStatus == "Login") {
+                                td.appendChild(createEventButton(buttonDateId));
+                            }
                             td.appendChild(dateDiv);
                             tr.appendChild(td);
                             table.appendChild(tr);
@@ -189,7 +197,9 @@ function createCalendar(year, month) {
                                 dateDiv.setAttribute('id', id);
                             }
                             dateDiv.appendChild(tdText);
-                            td.appendChild(createEventButton(buttonDateId));
+                            if (myLoginStatus == "Login") {
+                                td.appendChild(createEventButton(buttonDateId));
+                            }
                             td.appendChild(dateDiv);
                             tr.appendChild(td);
                             table.appendChild(tr);
@@ -221,7 +231,9 @@ function createCalendar(year, month) {
                                 dateDiv.setAttribute('id', id);
                             }
                             dateDiv.appendChild(tdText);
-                            td.appendChild(createEventButton(buttonDateId));
+                            if (myLoginStatus == "Login") {
+                                td.appendChild(createEventButton(buttonDateId));
+                            }
                             td.appendChild(dateDiv);
                             tr.appendChild(td);
                             table.appendChild(tr);
@@ -249,7 +261,9 @@ function createCalendar(year, month) {
                                 dateDiv.setAttribute('id', id);
                             }
                             dateDiv.appendChild(tdText);
-                            td.appendChild(createEventButton(buttonDateId));
+                            if (myLoginStatus == "Login") {
+                                td.appendChild(createEventButton(buttonDateId));
+                            }
                             td.appendChild(dateDiv);
                             tr.appendChild(td);
                             table.appendChild(tr);
@@ -277,7 +291,9 @@ function createCalendar(year, month) {
                                 dateDiv.setAttribute('id', id);
                             }
                             dateDiv.appendChild(tdText);
-                            td.appendChild(createEventButton(buttonDateId));
+                            if (myLoginStatus == "Login") {
+                                td.appendChild(createEventButton(buttonDateId));
+                            }
                             td.appendChild(dateDiv);
                             tr.appendChild(td);
                             table.appendChild(tr);
@@ -315,9 +331,15 @@ function uploadToDB(user_id, user_name, name, desc, date) {
                 console.log(this.responseText);
             }
         }
-        xmlhttp.open("POST", "../php/uploadToDB.php?user_id=1778696255676580" + "&user_name=Danny" + "&name=" + name + "&desc=" + desc + "&date=" + date, true);
+        xmlhttp.open("POST", "../php/uploadToDB.php?user_id=" + user_id + "&user_name=" + user_name + "&name=" + name + "&desc=" + desc + "&date=" + date, true);
         xmlhttp.send();
     }
+}
+
+function downloadFromDB(){
+  if (myLoginStatus == "Login"){
+
+  }
 }
 
 function createSpace(table, tr) {
@@ -346,7 +368,7 @@ function createDialog() {
         buttons: {
             "Create an event": function() {
                 var buttonDate = $(this).data('buttonDate');
-                uploadToDB("user_id", "user_name", name.val(), desc.val(), buttonDate);
+                uploadToDB(user_id, user_name, name.val(), desc.val(), buttonDate);
                 dialog.dialog("close");
             },
             Cancel: function() {

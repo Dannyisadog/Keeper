@@ -21,10 +21,10 @@
 
     <style media="screen">
         #table-calendar {
-            font-size: 20px;
+            font-size: 22px;
             width: 65vw;
             height: 66vh;
-            color: rgb(255, 255, 255);
+            color: rgb(249, 249, 249);
             /*text-align: center;*/
             margin-left: auto;
             margin-right: auto;
@@ -37,22 +37,21 @@
         }
 
         #calendar-title {
-            color: #7effa2;
+            color: rgb(249, 249, 249);
         }
 
         #today {
-            color: #ff0000;
+            color: #fe4747;
         }
 
         div.calendar-date,
         div.calendar-holiday {
             width: 120px;
             height: 70px;
-            /*background-color: #2b0bf1;*/
         }
 
         div.calendar-holiday {
-            color: #ffb800;
+            color: #ffa7a7;
         }
 
         input.text {
@@ -72,11 +71,11 @@
 
 <body>
     <div class="page" id="firstPage" style="width:100vw; height: 100vh;">
-        <ul id="menu-top" >
+        <ul id="menu-top">
             <li class="menu-left"><a href="./home.html">Keeper</a></li>
-            <li class="menu-right"><a href="#">Profile</a></li>
-            <li class="menu-right"><a href="#">Tool</a></li>
-            <li class="menu-right"></li>
+            <li class="menu-right"><a href="./home.html">Profile</a></li>
+            <li class="menu-right"><a href="./home.html"><img src="../img/menu.jpg"style="width:25px"></a></li>
+            <li class="menu-right" id="loginButtonLi"></li>
         </ul>
         <div id="fb-root"></div>
         <div id="home-calendar">

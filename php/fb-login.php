@@ -61,15 +61,28 @@ if (isset($accessToken)) {
         echo 'Facebook SDK returned an error: ' . $e->getMessage();
         exit;
     }
+    if (isset($_POST['logstatus'])){
+      echo "Login";
+      return;
+    }
+    if (isset($_POST['userProfile'])){
+      // print_r($profile);
+      echo json_encode($profile);
+      return;
+    }
     echo "Login";
     // printing $profile array on the screen which holds the basic info about user
-    // print_r($profile);
+    // print_r($profile[0]);
     // echo "<br><a href='./fb-logout.php'>Logout with facebook</a>";
     // Now you can redirect to another page and use the access token from $_SESSION['facebook_access_token']
 } else {
     // replace your website URL same as added in the developers.facebook.com/apps e.g. if you used http instead of https and you used non-www version or www version of your website then you must add the same here
     $loginUrl = $helper->getLoginUrl('http://localhost/Keeper/php/fb-login.php', $permissions);
     // echo '<a href="' . $loginUrl . '">Log in with Facebook!</a><br>';
+    if (isset($_POST['logstatus'])){
+      echo "Logout";
+      return;
+    }
     echo $loginUrl;
 }
 ?>
