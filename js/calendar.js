@@ -43,7 +43,7 @@ function createCalendarMenu(year, month, date) {
     today.style.color = 'rgba(241, 241, 241, 1)';
     today.style.fontSize = '7vh';
     today.style.textAlign = 'left';
-    today.style.marginTop = '20px';
+    today.style.marginTop = '10px';
     today.setAttribute('id', 'currentDate');
     var todayText = document.createTextNode(year + ' / ' + month);
 
