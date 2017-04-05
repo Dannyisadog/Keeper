@@ -1,6 +1,9 @@
 var firstday_1917 = [1, 4, 4, 0, 2, 5, 0, 3, 6, 1, 4, 6];
 var firstday_year;
 
+var weekDay = ['', 'S', 'M', 'T', 'W', 'T', 'F', 'S'];
+var monthName = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+
 function createCalendarMenu(year, month, date) {
 
     var menuDiv = document.createElement('div');
@@ -64,7 +67,8 @@ function createCalendarMenu(year, month, date) {
         createCalendarMenu(year, month, date);
         $('#table-calendar').remove();
         createCalendar(year, month);
-
+        $('.home-calendar-item').remove();
+        downloadFromDBToCalendar();
     });
 
     $(menuPreButton).click(e => {
@@ -77,12 +81,14 @@ function createCalendarMenu(year, month, date) {
         createCalendarMenu(year, month, date);
         $('#table-calendar').remove();
         createCalendar(year, month);
-
+        $('.home-calendar-item').remove();
+        downloadFromDBToCalendar();
     });
 
     $(menuTodayButton).click(e => {
         getTodayCalendar();
-
+        $('.home-calendar-item').remove();
+        downloadFromDBToCalendar();
     });
 }
 
@@ -126,15 +132,14 @@ function createCalendar(year, month) {
                             var dateDiv = document.createElement('div');
                             if (j == 1 || j == 7) {
                                 dateDiv.setAttribute('class', 'calendar-holiday');
-                                dateDiv.setAttribute('id', 'calendar-date' + count + '-holiday');
+                                dateDiv.setAttribute('id', 'div' + buttonDateId);
                             } else {
                                 dateDiv.setAttribute('class', 'calendar-date');
-                                dateDiv.setAttribute('id', 'calendar-date' + count);
+                                dateDiv.setAttribute('id', 'div' + buttonDateId);
                             }
                             if (year == currentYear && month == currentMonth && count == currentDate) {
-                                var id = 'today';
-                                dateDiv.setAttribute('class', 'calendar-date');
-                                dateDiv.setAttribute('id', id);
+                                dateDiv.setAttribute('class', 'calendar-date today');
+                                dateDiv.setAttribute('id', 'div' + buttonDateId);
                             }
                             dateDiv.appendChild(tdText);
                             if (myLoginStatus == "Login") {
@@ -156,15 +161,14 @@ function createCalendar(year, month) {
                             var dateDiv = document.createElement('div');
                             if (j == 1 || j == 7) {
                                 dateDiv.setAttribute('class', 'calendar-holiday');
-                                dateDiv.setAttribute('id', 'calendar-date' + count + '-holiday');
+                                dateDiv.setAttribute('id', 'div' + buttonDateId);
                             } else {
                                 dateDiv.setAttribute('class', 'calendar-date');
-                                dateDiv.setAttribute('id', 'calendar-date' + count);
+                                dateDiv.setAttribute('id', 'div' + buttonDateId);
                             }
                             if (year == currentYear && month == currentMonth && count == currentDate) {
-                                var id = 'today';
-                                dateDiv.setAttribute('class', 'calendar-date');
-                                dateDiv.setAttribute('id', id);
+                                dateDiv.setAttribute('class', 'calendar-date today');
+                                dateDiv.setAttribute('id', 'div' + buttonDateId);
                             }
                             dateDiv.appendChild(tdText);
                             if (myLoginStatus == "Login") {
@@ -186,15 +190,14 @@ function createCalendar(year, month) {
                             var dateDiv = document.createElement('div');
                             if (j == 1 || j == 7) {
                                 dateDiv.setAttribute('class', 'calendar-holiday');
-                                dateDiv.setAttribute('id', 'calendar-date' + count + '-holiday');
+                                dateDiv.setAttribute('id', 'div' + buttonDateId);
                             } else {
                                 dateDiv.setAttribute('class', 'calendar-date');
-                                dateDiv.setAttribute('id', 'calendar-date' + count);
+                                dateDiv.setAttribute('id', 'div' + buttonDateId);
                             }
                             if (year == currentYear && month == currentMonth && count == currentDate) {
-                                var id = 'today';
-                                dateDiv.setAttribute('class', 'calendar-date');
-                                dateDiv.setAttribute('id', id);
+                                dateDiv.setAttribute('class', 'calendar-date today');
+                                dateDiv.setAttribute('id', 'div' + buttonDateId);
                             }
                             dateDiv.appendChild(tdText);
                             if (myLoginStatus == "Login") {
@@ -217,18 +220,15 @@ function createCalendar(year, month) {
                             var tdText = document.createTextNode(count);
                             var dateDiv = document.createElement('div');
                             if (j == 1 || j == 7) {
-                                var id = 'calendar-date' + count + '-holiday';
                                 dateDiv.setAttribute('class', 'calendar-holiday');
-                                dateDiv.setAttribute('id', id);
+                                dateDiv.setAttribute('id', 'div' + buttonDateId);
                             } else {
-                                var id = 'calendar-date' + count;
                                 dateDiv.setAttribute('class', 'calendar-date');
-                                dateDiv.setAttribute('id', id);
+                                dateDiv.setAttribute('id', 'div' + buttonDateId);
                             }
                             if (year == currentYear && month == currentMonth && count == currentDate) {
-                                var id = 'today';
-                                dateDiv.setAttribute('class', 'calendar-date');
-                                dateDiv.setAttribute('id', id);
+                                dateDiv.setAttribute('class', 'calendar-date today');
+                                dateDiv.setAttribute('id', 'div' + buttonDateId);
                             }
                             dateDiv.appendChild(tdText);
                             if (myLoginStatus == "Login") {
@@ -250,15 +250,14 @@ function createCalendar(year, month) {
                             var dateDiv = document.createElement('div');
                             if (j == 1 || j == 7) {
                                 dateDiv.setAttribute('class', 'calendar-holiday');
-                                dateDiv.setAttribute('id', 'calendar-date' + count + '-holiday');
+                                dateDiv.setAttribute('id', 'div' + buttonDateId);
                             } else {
                                 dateDiv.setAttribute('class', 'calendar-date');
-                                dateDiv.setAttribute('id', 'calendar-date' + count);
+                                dateDiv.setAttribute('id', 'div' + buttonDateId);
                             }
                             if (year == currentYear && month == currentMonth && count == currentDate) {
-                                var id = 'today';
-                                dateDiv.setAttribute('class', 'calendar-date');
-                                dateDiv.setAttribute('id', id);
+                                dateDiv.setAttribute('class', 'calendar-date today');
+                                dateDiv.setAttribute('id', 'div' + buttonDateId);
                             }
                             dateDiv.appendChild(tdText);
                             if (myLoginStatus == "Login") {
@@ -280,15 +279,14 @@ function createCalendar(year, month) {
                             var dateDiv = document.createElement('div');
                             if (j == 1 || j == 7) {
                                 dateDiv.setAttribute('class', 'calendar-holiday');
-                                dateDiv.setAttribute('id', 'calendar-date' + count + '-holiday');
+                                dateDiv.setAttribute('id', 'div' + buttonDateId);
                             } else {
                                 dateDiv.setAttribute('class', 'calendar-date');
-                                dateDiv.setAttribute('id', 'calendar-date' + count);
+                                dateDiv.setAttribute('id', 'div' + buttonDateId);
                             }
                             if (year == currentYear && month == currentMonth && count == currentDate) {
-                                var id = 'today';
-                                dateDiv.setAttribute('class', 'calendar-date');
-                                dateDiv.setAttribute('id', id);
+                                dateDiv.setAttribute('class', 'calendar-date today');
+                                dateDiv.setAttribute('id', 'div' + buttonDateId);
                             }
                             dateDiv.appendChild(tdText);
                             if (myLoginStatus == "Login") {
@@ -320,26 +318,129 @@ function getTodayCalendar() {
     createCalendar(currentYear, currentMonth);
 }
 
-function uploadToDB(user_id, user_name, name, desc, date) {
-    if (name.length == 0) {
-        // document.getElementById(id).innerHTML = "";
-        return;
-    } else {
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                console.log(this.responseText);
-            }
+function uploadToDB(user_id, user_name, event_name, event_desc, event_date) {
+    if (myLoginStatus == "Login") {
+        if (event_name.length == 0) {
+            return;
+        } else {
+            $.ajax({
+                type: 'POST',
+                url: '../php/uploadToDB.php',
+                data: {
+                    "user_id": user_id,
+                    "user_name": user_name,
+                    "event_name": event_name,
+                    "event_desc": event_desc,
+                    "event_date": event_date
+                },
+                success: function(result) {
+                    console.log(result);
+                },
+            });
         }
-        xmlhttp.open("POST", "../php/uploadToDB.php?user_id=" + user_id + "&user_name=" + user_name + "&name=" + name + "&desc=" + desc + "&date=" + date, true);
-        xmlhttp.send();
+    }
+    updateEvent();
+}
+
+function downloadFromDBToCalendar() {
+    if (myLoginStatus == "Login") {
+        $.ajax({
+            type: 'POST',
+            url: '../php/downloadFromDB.php',
+            dataType: 'json',
+            data: {
+                user_id: user_id
+            },
+            success: function(result) {
+                console.log(result);
+                for (var i = 0; i < Object.keys(result).length; i++) {
+                    console.log(result[i].event_date);
+                    console.log(result[i].event_name);
+                    console.log(result[i].event_desc);
+                    var eventName = document.createTextNode(result[i].event_name);
+                    var eventDesc = document.createTextNode(result[i].event_desc);
+                    var eventDate = document.createTextNode(result[i].event_date);
+                    var id = 'div' + result[i].event_date;
+
+                    var div = document.createElement('div');
+
+                    div.setAttribute('class', 'home-calendar-item');
+
+                    div.id = 'block';
+                    div.style.width = '10px';
+                    div.style.height = '10px';
+                    div.style.float = 'left';
+                    div.style.marginLeft = '2px';
+                    div.style.marginTop = '2px';
+                    div.style.backgroundColor = '#008aee';
+
+                    if (document.getElementById(id)){
+                      document.getElementById(id).appendChild(div);
+                    }
+                }
+            },
+        });
     }
 }
 
-function downloadFromDB(){
-  if (myLoginStatus == "Login"){
+function downloadFromDBToList() {
+    if (myLoginStatus == "Login") {
+        $.ajax({
+            type: 'POST',
+            url: '../php/downloadFromDB.php',
+            dataType: 'json',
+            data: {
+                user_id: user_id
+            },
+            success: function(result) {
+                console.log(result);
+                for (var i = 0; i < Object.keys(result).length; i++) {
 
-  }
+                    var eventName = document.createTextNode(result[i].event_name);
+                    var eventDesc = document.createTextNode(result[i].event_desc);
+                    var eventDate = document.createTextNode(result[i].event_date);
+                    var listdiv = document.createElement('div');
+
+                    listdiv.setAttribute('class', 'home-list-item');
+
+                    listdiv.style.width = '18vw';
+                    listdiv.style.height = '6vh';
+                    listdiv.style.marginLeft = 'auto';
+                    listdiv.style.marginRight = 'auto';
+                    listdiv.style.marginTop = '11px';
+                    listdiv.style.borderRadius = '10px';
+                    listdiv.style.backgroundColor = 'rgba(194, 238, 255, 0.52)';
+                    listdiv.style.color = 'rgb(249, 249, 249)';
+
+                    var listEventName = document.createElement('p');
+                    var listEventDesc = document.createElement('p');
+                    var listEventDate = document.createElement('p');
+
+                    listEventName.style.textAlign = 'center';
+                    listEventName.style.margin = '0px';
+                    listEventDate.style.textAlign = 'center';
+                    listEventDate.style.margin = '0px';
+
+                    listEventName.appendChild(eventName);
+                    listEventDesc.appendChild(eventDesc);
+                    listEventDate.appendChild(eventDate);
+
+                    listdiv.appendChild(listEventName);
+                    // listdiv.appendChild(listEventDesc);
+                    listdiv.appendChild(listEventDate);
+
+                    document.getElementById('home-list').appendChild(listdiv);
+                }
+            },
+        });
+    }
+}
+
+function updateEvent() {
+    $('.home-list-item').remove();
+    downloadFromDBToList();
+    $('.home-calendar-item').remove();
+    downloadFromDBToCalendar();
 }
 
 function createSpace(table, tr) {
@@ -504,9 +605,6 @@ function day_29(month) {
         return false;
     }
 }
-
-var weekDay = ['', 'S', 'M', 'T', 'W', 'T', 'F', 'S'];
-var monthName = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
 function monthNumberToName(monthNumber) {
     switch (monthNumber) {

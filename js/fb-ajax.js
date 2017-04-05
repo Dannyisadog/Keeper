@@ -4,9 +4,12 @@ function isLogin() {
             if (data == 'Login') {
                 // console.log("Login Status: " + data + "\nStatus: " + status);
                 createLogOutButton('fb-logout', 'Facebook Logout');
+                updateEvent();
             } else {
                 // console.log("Login Status: Logout\nStatus: " + status);
                 createLogInButton('fb-login', 'Facebook Login');
+                $('.home-list-item').remove();
+                $('.home-calendar-item').remove();
             }
         });
 }
@@ -19,12 +22,12 @@ function getUserProfile() {
         dataType: 'json',
         cache: false,
         success: function(result) {
-            // console.log(result);
-            console.log("name:" + result.name);
-            console.log("first_name: " + result.first_name);
-            console.log("last_name: " + result.last_name);
-            console.log("email: " + result.email);
-            console.log("user_id: " + result.id);
+            console.log(result);
+            // console.log("name:" + result.name);
+            // console.log("first_name: " + result.first_name);
+            // console.log("last_name: " + result.last_name);
+            // console.log("email: " + result.email);
+            // console.log("user_id: " + result.id);
         },
     });
 }

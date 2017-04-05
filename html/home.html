@@ -14,13 +14,14 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <!-- <script src='../js/profile.js'></script> -->
     <!-- <script src='../js/facebook.js'></script> -->
-    <script src='../js/calendar.js'></script>
+    <!-- <script src='../js/calendar.js'></script> -->
     <script src='../js/fb-ajax.js'></script>
+    <script src='../js/calendar.js'></script>
     <script src='../js/autoload.js'></script>
 
 
     <style media="screen">
-        #table-calendar{
+        #table-calendar {
             font-size: 22px;
             width: 65vw;
             height: 66vh;
@@ -34,9 +35,12 @@
             border-radius: 3px;
         }
 
-        td, tr{
-          border: 2px solid rgba(238, 238, 238, 0.2);
-          border-radius: 3px;
+        td,
+        tr {
+            border: 2px solid rgba(238, 238, 238, 0.2);
+            border-radius: 3px;
+            width: 8.5vw;
+            height: 8.5vh;
         }
 
         p#currentDate {
@@ -47,14 +51,14 @@
             color: rgb(249, 249, 249);
         }
 
-        #today {
+        div.today {
             color: #fe4747;
         }
 
         div.calendar-date,
-        div.calendar-holiday {
-            width: 120px;
-            height: 70px;
+        div.calendar-holiday,
+        button.eventButton {
+
         }
 
         div.calendar-holiday {
@@ -81,8 +85,11 @@
         <ul id="menu-top">
             <li class="menu-left"><a href="./home.html">Keeper</a></li>
             <li class="menu-right"><a href="./home.html">Profile</a></li>
-            <li class="menu-right"><a href="./home.html"><img src="../img/menu.jpg"style="width:25px"></a></li>
+            <li class="menu-right">
+                <a href="./home.html"><img src="../img/menu.jpg" style="width:25px"></a>
+            </li>
             <li class="menu-right" id="loginButtonLi"></li>
+
         </ul>
         <div id="fb-root"></div>
         <div id="home-calendar">

@@ -6,4 +6,9 @@ window.onload = function() {
     createCalendarMenu(currentYear, currentMonth, currentDate);
     createCalendar(currentYear, currentMonth);
     isLogin();
+    downloadFromDBToCalendar();
+    downloadFromDBToList();
 }
+// window.setInterval(function(){
+//     updateEvent();
+// }, 1000);
