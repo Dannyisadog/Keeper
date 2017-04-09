@@ -32,6 +32,24 @@ function getUserProfile() {
     });
 }
 
+function createUser() {
+  if (myLoginStatus == 'Login'){
+    $.ajax({
+        type: 'POST',
+        url: '../php/createUser.php',
+        data: {
+            "user_id": user_id,
+            "user_name": user_name,
+            "user_email": user_email
+        },
+        cache: false,
+        success: function(result) {
+            console.log(result);
+        },
+    });
+  }
+}
+
 var myLoginStatus = function () {
     var loginStatus = null;
     $.ajax({
@@ -110,6 +128,7 @@ function createLogInButton(id, text) {
                 // console.log(result);
                 // console.log("Login");
                 window.location.href = result;
+                // console.log(result);
             }
         });
     });

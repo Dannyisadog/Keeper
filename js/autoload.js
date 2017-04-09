@@ -8,6 +8,7 @@ window.onload = function() {
     isLogin();
     downloadFromDBToCalendar();
     downloadFromDBToList();
+    createUser();
 }
 // window.setInterval(function(){
 //     updateEvent();

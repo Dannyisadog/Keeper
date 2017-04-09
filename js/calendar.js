@@ -326,6 +326,7 @@ function uploadToDB(user_id, user_name, event_name, event_desc, event_date) {
             $.ajax({
                 type: 'POST',
                 url: '../php/uploadToDB.php',
+                async: false,
                 data: {
                     "user_id": user_id,
                     "user_name": user_name,
