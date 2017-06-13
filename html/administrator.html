@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Login</title>
+
+    <meta charset="utf-8">
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+    <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> -->
+    <link rel="stylesheet" href="../css/jquery-ui.css">
+    <link href='../css/style.css' rel='stylesheet' />
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <style>
+        table {
+            margin: 0 auto;
+            color: rgb(249, 249, 249);
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 22px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page" id="firstPage" style="width:100vw; height: 100vh;">
+        <ul id="menu-top">
+            <li class="menu-left"><a href="./">Keeper</a></li>
+
+        </ul>
+
+        <div id="admin-login-page" style="text-align:center;">
+            <div>
+                <form action="../php/adminLogin.php" method="post">
+                    <table style="margin-top: 200px;">
+                        <tr>
+                            <th>user</th>
+                            <th><input type="text" name="user" value=""></th>
+                        </tr>
+                        <tr>
+                            <th>password</th>
+                            <th><input type="password" name="password" value=""></th>
+                        </tr>
+                    </table>
+                    <input type="submit" value="Login">
+                </form>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+
+</html>

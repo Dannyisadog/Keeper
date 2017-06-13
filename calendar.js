@@ -19,7 +19,7 @@ function createCalendarMenu(year, month, date) {
     menuNextButton.style.float = 'right';
     menuNextButton.style.marginTop = '40px';
     menuNextButton.setAttribute('id', 'calendar-nextButton');
-    var menuNextButtonText = document.createTextNode('>');
+    var menuNextButtonText = document.createTextNode('Next');
     menuNextButton.appendChild(menuNextButtonText);
 
     menuDiv.appendChild(menuNextButton);
@@ -28,7 +28,7 @@ function createCalendarMenu(year, month, date) {
     menuPreButton.style.float = 'right';
     menuPreButton.style.marginTop = '40px';
     menuPreButton.setAttribute('id', 'calendar-preButton');
-    var menuPreButtonText = document.createTextNode('<');
+    var menuPreButtonText = document.createTextNode('Pre');
     menuPreButton.appendChild(menuPreButtonText);
 
     menuDiv.appendChild(menuPreButton);
@@ -324,7 +324,6 @@ function uploadToDB(user_id, user_name, event_name, event_desc, event_date) {
             return;
         } else {
             $.ajax({
-                async: false,
                 type: 'POST',
                 url: '../php/uploadToDB.php',
                 data: {
@@ -334,7 +333,7 @@ function uploadToDB(user_id, user_name, event_name, event_desc, event_date) {
                     "event_desc": event_desc,
                     "event_date": event_date
                 },
-                success: function (result) {
+                success: function(result) {
                     // console.log(result);
                 },
             });
@@ -346,14 +345,13 @@ function uploadToDB(user_id, user_name, event_name, event_desc, event_date) {
 function downloadFromDBToCalendar() {
     if (myLoginStatus == "Login") {
         $.ajax({
-            async: false,
             type: 'POST',
             url: '../php/downloadFromDB.php',
             dataType: 'json',
             data: {
                 user_id: user_id
             },
-            success: function (result) {
+            success: function(result) {
                 // console.log(result);
                 for (var i = 0; i < Object.keys(result).length; i++) {
                     // console.log(result[i].event_date);
@@ -368,6 +366,7 @@ function downloadFromDBToCalendar() {
 
                     div.setAttribute('class', 'home-calendar-item');
 
+                    div.id = 'block';
                     div.style.width = '10px';
                     div.style.height = '10px';
                     div.style.float = 'left';
@@ -375,8 +374,8 @@ function downloadFromDBToCalendar() {
                     div.style.marginTop = '2px';
                     div.style.backgroundColor = '#008aee';
 
-                    if (document.getElementById(id)) {
-                        document.getElementById(id).appendChild(div);
+                    if (document.getElementById(id)){
+                      document.getElementById(id).appendChild(div);
                     }
                 }
             },
@@ -384,48 +383,45 @@ function downloadFromDBToCalendar() {
     }
 }
 
-function addToList(event_name, event_desc, event_date, event_id) {
-    var listdiv = document.createElement('div');
+function addToList(event_name, event_desc, event_date) {
+  var listdiv = document.createElement('div');
 
-    listdiv.setAttribute('class', 'home-list-item');
-    listdiv.setAttribute('id', event_id.textContent);
+  listdiv.setAttribute('class', 'home-list-item');
 
-    listdiv.style.width = '18vw';
-    listdiv.style.height = '6vh';
-    listdiv.style.marginLeft = 'auto';
-    listdiv.style.marginRight = 'auto';
-    listdiv.style.marginTop = '20px';
-    listdiv.style.marginBottom = '20px'
-    listdiv.style.borderRadius = '10px';
-    listdiv.style.backgroundColor = 'rgba(194, 238, 255, 0.52)';
-    listdiv.style.color = 'rgb(249, 249, 249)';
+  listdiv.style.width = '18vw';
+  listdiv.style.height = '6vh';
+  listdiv.style.marginLeft = 'auto';
+  listdiv.style.marginRight = 'auto';
+  listdiv.style.marginTop = '11px';
+  listdiv.style.borderRadius = '10px';
+  listdiv.style.backgroundColor = 'rgba(194, 238, 255, 0.52)';
+  listdiv.style.color = 'rgb(249, 249, 249)';
 
-    var listEventName = document.createElement('p');
-    var listEventDate = document.createElement('p');
-    var listEventDel = document.createElement('button');
+  var listEventName = document.createElement('p');
+  var listEventDesc = document.createElement('p');
+  var listEventDate = document.createElement('p');
+  var listEventDel = document.createElement('button');
 
-    var listEventDelText = document.createTextNode('Delete');
+  var listEventDelText = document.createTextNode('Delete');
 
-    listEventName.style.textAlign = 'center';
-    listEventName.style.margin = '0px';
-    listEventDate.style.textAlign = 'center';
-    listEventDate.style.marginTop = '10px';
-    listEventDel.style.float = 'right';
+  listEventName.style.textAlign = 'center';
+  listEventName.style.margin = '0px';
+  listEventDate.style.textAlign = 'center';
+  listEventDate.style.margin = '0px';
+  listEventDel.style.float = 'right';
 
-    listEventDel.appendChild(listEventDelText);
+  listEventDel.appendChild(listEventDelText);
 
-    listEventName.appendChild(event_name);
-    listEventDate.appendChild(event_date);
+  listEventName.appendChild(event_name);
+  //listEventDesc.appendChild(event_desc);
+  listEventDate.appendChild(event_date);
 
-    listdiv.appendChild(listEventDel);
-    listdiv.appendChild(listEventName);
-    listdiv.appendChild(listEventDate);
+  listdiv.appendChild(listEventDel);
+  listdiv.appendChild(listEventName);
+  // listdiv.appendChild(listEventDesc);
+  listdiv.appendChild(listEventDate);
 
-    $(listEventDel).click(e => {
-        deleteEventFromDB(event_id.textContent);
-    });
-
-    document.getElementById('home-list').appendChild(listdiv);
+  document.getElementById('home-list').appendChild(listdiv);
 }
 
 function downloadFromDBToList() {
@@ -438,36 +434,19 @@ function downloadFromDBToList() {
             data: {
                 user_id: user_id
             },
-            success: function (result) {
-                //  console.log(result);
+            success: function(result) {
+                // console.log(result);
                 for (var i = 0; i < Object.keys(result).length; i++) {
 
                     var eventName = document.createTextNode(result[i].event_name);
                     var eventDesc = document.createTextNode(result[i].event_desc);
                     var eventDate = document.createTextNode(result[i].event_date);
-                    var eventId = document.createTextNode(result[i].event_id);
 
-                    addToList(eventName, eventDesc, eventDate, eventId);
+                    addToList(eventName, eventDesc, eventDate);
                 }
             },
         });
     }
-}
-
-function deleteEventFromDB(event_id) {
-    $.ajax({
-        async: false,
-        type: 'POST',
-        url: '../php/deleteFromDB.php',
-        dataType: 'json',
-        data: {
-            event_id: event_id
-        },
-        success: function (result) {
-            console.log(result);
-        },
-    });
-    updateEvent();
 }
 
 function updateEvent() {
@@ -497,29 +476,29 @@ function createDialog() {
 
     dialog = $("#dialog-form").dialog({
         autoOpen: false,
-        height: 220,
+        height: 280,
         width: 350,
         modal: true,
         buttons: {
-            "Create an event": function () {
+            "Create an event": function() {
                 var buttonDate = $(this).data('buttonDate');
                 uploadToDB(user_id, user_name, name.val(), desc.val(), buttonDate);
                 dialog.dialog("close");
             },
-            Cancel: function () {
+            Cancel: function() {
                 dialog.dialog("close");
             }
         },
-        close: function () {
+        close: function() {
             form[0].reset();
         }
     });
 
-    form = dialog.find("form").on("submit", function (event) {
+    form = dialog.find("form").on("submit", function(event) {
         event.preventDefault();
     });
 
-    $(".eventButton").button().on("click", function () {
+    $(".eventButton").button().on("click", function() {
         // console.log(" ID: ", $(this).attr("id"));
         var dateId = $(this).attr("id");
         // console.log(dateId);

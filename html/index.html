@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Home</title>
+
+    <meta charset="utf-8">
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+    <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> -->
+    <link rel="stylesheet" href="../css/jquery-ui.css">
+    <link href='../css/style.css' rel='stylesheet' />
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <!-- <script src='../js/profile.js'></script> -->
+    <!-- <script src='../js/facebook.js'></script> -->
+    <!-- <script src='../js/calendar.js'></script> -->
+    <script src='../js/fb-ajax.js'></script>
+    <script src='../js/calendar.js'></script>
+    <script src='../js/activity.js'></script>
+    <script src='../js/autoload.js'></script>
+
+
+    <style media="screen">
+        #table-calendar {
+            font-size: 22px;
+            width: 65vw;
+            height: 66vh;
+            color: rgb(249, 249, 249);
+            /*text-align: center;*/
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 30px;
+            font-family: Arial, Helvetica, sans-serif;
+            border: 2px solid rgba(238, 238, 238, 0.2);
+            border-radius: 3px;
+        }
+
+        td,
+        tr {
+            border: 2px solid rgba(238, 238, 238, 0.2);
+            border-radius: 3px;
+            width: 8.5vw;
+            height: 8.5vh;
+        }
+
+        p#currentDate {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        #calendar-title {
+            color: rgb(249, 249, 249);
+        }
+
+        div.calendar-date {
+            margin-top: 0px;
+        }
+
+        div.today {
+            color: #fe4747;
+        }
+
+        div.calendar-holiday {
+            color: #ffa7a7;
+        }
+
+        input.text {
+            margin-bottom: 15px;
+            width: 95%;
+            padding: .4em;
+        }
+
+        fieldset {
+            padding: 0;
+            border: 0;
+            margin-top: 25px;
+        }
+
+        #userName {
+            font-size: 20px;
+        }
+
+        input[type=text], input[type=date] {
+            font-family: Arial, Helvetica, sans-serif;
+            /*position: fixed;*/
+            margin: 0 auto;
+            margin-top: 15px;
+            padding: 6px;
+            display: block;
+            border: 1px solid #ccc;
+            border-radius: 30px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        .container {
+            width: 30em;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="page" id="firstPage" style="width:100vw; height: 100vh;">
+        <ul id="menu-top">
+            <li class="menu-left"><a href="./">Keeper</a></li>
+            <li class="menu-right" id="userName"></li>
+            <li class="menu-right" id="userPhoto"></li>
+            <li class="menu-right" id="loginButtonLi"></li>
+            <li class="menu-right" id="adminLoginButton"><button onclick="goAdminPage()">admin</button></li>
+
+        </ul>
+        <div id="fb-root"></div>
+        <div class="container"id="home-calendar">
+
+        </div>
+
+        <div class="container" id="home-list" style="color: rgb(249, 249, 249);">
+            <h1>Your Event</h1>
+            <input type='text' name='activity-name' size='30' placeholder='search...'>
+        </div>
+    </div>
+    <div id="dialog-form" title="Create new event">
+        <form>
+            <fieldset>
+                <label for="name">Name</label>
+                <input type="text" name="name" id="name" value="" class="text ui-widget-content ui-corner-all">
+                <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
+            </fieldset>
+        </form>
+    </div>
+
+    <div class="page" id="secondPage" style="width:100vw; height: 100vh; color: rgb(249, 249, 249);">
+
+        <div class="container" id="user-allActivity" style="text-align:center;">
+            <h1>You Can Join</h1>
+            <input type='text' name='activity-name' size='30' placeholder='search...'>
+        </div>
+        <div class="container" id="user-activityInfo" style="text-align:center;">
+            <h1>Activity Info</h1>
+            <p style='margin-top:50px;'>Name</p>
+            <input type='text' name='activityName-info' size='30' placeholder='Activity Name' disabled>
+
+            <p style='margin-top:50px;'>Place</p>
+            <input type='text' name='activityPlace-info' size='30' placeholder='Activity Place' disabled>
+
+            <p style='margin-top:50px;'>Time</p>
+            <input type='date' name='activityTime-info' size='30' placeholder='Activity Time' disabled>
+
+            <p style='margin-top:50px;'>Host</p>
+            <input type='text' name='activityHost-info' size='30' placeholder='Activity Host' value='' disabled>
+        </div>
+        <div class="container" id="myActivity-list">
+            <h1>Your Activity</h1>
+            <input type='text' name='activity-name' size='30' placeholder='search...'>
+        </div>
+    </div>
+</body>
+
+<script>
+    function goAdminPage() {
+        window.location.href = "./administrator.html";
+    }
+
+</script>
+
+
+</html>

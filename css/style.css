@@ -1,18 +1,19 @@
 body {
-    background: url("../img/bg6.jpg") no-repeat center center fixed;
+    background: url("../img/bg5.jpg") no-repeat center center fixed;
     background-color: #000000;
     background-size: cover;
+    font-family: Arial, Helvetica, sans-serif;
     margin: 0px;
 }
 
 #firstPage {
-    background: url("../img/bg6.jpg") no-repeat center center fixed;
+    background: url("../img/bg1.jpg") no-repeat center center fixed;
     background-size: cover;
     margin: 0px;
 }
 
 #secondPage {
-    background: url("../img/bg4.jpg") no-repeat center center fixed;
+    background: url("../img/bg5.jpg") no-repeat center center fixed;
     background-size: cover;
     margin: 0px;
 }
@@ -31,24 +32,104 @@ body {
     top: 0px;
 }
 
+div#user-list, div#activity-list, div#myActivity-list {
+    background-color: rgba(238, 238, 238, 0.2);
+    height: 83vh;
+    width: 20vw;
+    margin-top: 90px;
+    margin-right: 40px;
+    margin-left: auto;
+    float: right;
+    border: 2px solid rgba(238, 238, 238, 0.2);
+    border-radius: 30px;
+    text-align: center;
+}
+
+div#admin-management {
+    background-color: rgba(238, 238, 238, 0.2);
+    height: 83vh;
+    width: 70vw;
+    margin-top: 90px;
+    margin-left: 40px;
+    margin-right: auto;
+    float: left;
+    border: 2px solid rgba(238, 238, 238, 0.2);
+    border-radius: 30px;
+}
+
+div#admin-management-createActivity, div#user-allActivity {
+    background-color: rgba(238, 238, 238, 0.2);
+    height: 83vh;
+    width:30vw;
+    margin-top: 90px;
+    margin-left: 40px;
+    margin-right: auto;
+    float: left;
+    border: 2px solid rgba(238, 238, 238, 0.2);
+    border-radius: 30px;
+}
+
+div#admin-management-activityInfo, div#user-activityInfo {
+    background-color: rgba(238, 238, 238, 0.2);
+    height: 83vh;
+    width:30vw;
+    margin-top: 90px;
+    margin-left: 100px;
+    margin-right: auto;
+    float: left;
+    border: 2px solid rgba(238, 238, 238, 0.2);
+    border-radius: 30px;
+}
+
+div#admin-login-page {
+    background-color: rgba(238, 238, 238, 0.2);
+    height: 83vh;
+    width: 94vw;
+    margin-top: 90px;
+    margin-left: 40px;
+    margin-right: auto;
+    float: left;
+    border: 2px solid rgba(238, 238, 238, 0.2);
+    border-radius: 30px;
+}
+
+div#user-profile {
+    background-color: rgba(238, 238, 238, 0.2);
+    height: 83vh;
+    width: 94vw;
+    margin-top: 90px;
+    margin-left: 40px;
+    margin-right: auto;
+    float: left;
+    border: 2px solid rgba(238, 238, 238, 0.2);
+    border-radius: 30px;
+}
+
 div#home-calendar {
     background-color: rgba(238, 238, 238, 0.2);
     height: 83vh;
     width: 70vw;
-    margin-top: 100px;
-    margin-left: 20px;
+    margin-top: 90px;
+    margin-left: 40px;
     margin-right: auto;
-    float: left
+    float: left;
+    border: 2px solid rgba(238, 238, 238, 0.2);
+    border-radius: 30px;
 }
 
 div#home-list {
     background-color: rgba(238, 238, 238, 0.2);
     height: 83vh;
     width: 20vw;
-    margin-top: 100px;
-    margin-right: 20px;
+    margin-top: 90px;
+    margin-right: 40px;
     margin-left: auto;
-    float: right
+    float: right;
+    border: 2px solid rgba(238, 238, 238, 0.2);
+    border-radius: 30px;
+    overflow: auto;
+    white-space: nowrap;
+    text-align: center;
 }
 
 div.selfImg {
@@ -111,6 +192,8 @@ ul {
     width: 100%;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 25px;
+    border-bottom: 1px solid rgba(238, 238, 238, 0.2);
+    border-radius: 3px;
 }
 
 li.menu-left {
@@ -124,6 +207,7 @@ li.menu-right {
 li, a {
     display: block;
     color: rgb(249, 249, 249);
-    padding: 8px;
+    padding: 6px;
     text-decoration: none;
+    text-align: center;
 }

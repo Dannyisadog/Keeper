@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Profile</title>
+
+    <meta charset="utf-8">
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+    <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> -->
+    <link rel="stylesheet" href="../css/jquery-ui.css">
+    <link href='../css/style.css' rel='stylesheet' />
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src='../js/fb-ajax.js'></script>
+
+    <script>
+        window.onload = function () {
+            isLogin();
+        }
+    </script>
+
+    <style>
+        #userName {
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page" id="firstPage" style="width:100vw; height: 100vh;">
+        <ul id="menu-top">
+            <li class="menu-left"><a href="./">Keeper</a></li>
+            <li class="menu-right" id="userName"></li>
+            <li class="menu-right" id="userPhoto"></li>
+            <li class="menu-right" id="loginButtonLi"></li>
+
+        </ul>
+        <div id="fb-root"></div>
+
+        <div id="user-profile">
+
+        </div>
+
+    </div>
+</body>
+
+
+</html>
